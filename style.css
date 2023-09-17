@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(325deg, #03001e 0%, #7303c0 30%, #ec38bc 70%, #fdeff9 100%);
+}
+
+.game {
+
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    background-color: white;
+    padding: 20px 30px 40px;
+    border-radius: 15px;
+    margin: 0 auto 40px;
+}
+
+.controls {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+button {
+    background: #282A3A;
+    color: #FFF;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: 0;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+.disabled {
+    color: #757575;
+}
+
+.stats {
+    color: #282834;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+.board-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.board,
+.win {
+    border-radius: 5px;
+    box-shadow: 0 25px 50px rgb(33 33 33 / 25%);
+    background: linear-gradient(135deg, #03001e 0%, #7303c0 0%, #ec38bc 50%, #fdeff9 100%);
+    transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    backface-visibility: hidden;
+}
+
+.board {
+    padding: 18px;
+    display: grid;
+    grid-template-columns: repeat(6, auto) !important;
+    grid-gap: 12px;
+}
+
+.board-container.flipped .board {
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.board-container.flipped .win {
+    transform: rotateY(0) rotateZ(0);
+}
+
+.card {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    background: #282A3A;
+    transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    backface-visibility: hidden;
+}
+
+.card-back {
+    -webkit-transform: rotateY(180deg) rotateZ(50deg);
+    -moz-transform: rotateY(180deg) rotateZ(50deg);
+    -ms-transform: rotateY(180deg) rotateZ(50deg);
+    -o-transform: rotateY(180deg) rotateZ(50deg);
+    transform: rotateY(180deg) rotateZ(50deg);
+    font-size: 28pt;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: center;
+    line-height: 100px;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    
+    background-size: cover;
+    }
+
+.card.flipped .card-front {
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.card.flipped .card-back {
+    transform: rotateY(0) rotateZ(0);
+}
+
+.win {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: #FDF8E6;
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.win-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 21pt;
+    color: #282A3A;
+}
+
+.highlight {
+    color: #7303c0;
+}
+
+@media (max-width: 768px) {
+    .board {
+
+        padding: 20px;
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: repeat(5, auto) !important;
+    }
+
+    .card {
+
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 618px) {
+    .board {
+
+        padding: 20px;
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: repeat(4, auto) !important;
+    }
+
+    .card {
+
+        width: 85px;
+        height: 85px;
+    }
+}
+
+@media (max-width: 425px) {
+    .board {
+
+        padding: 8px;
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: repeat(4, auto) !important;
+    }
+
+    .card {
+
+        width: 75px;
+        height: 75px;
+    }
+}
+
+@media (max-width: 360px) {
+    .board {
+
+        padding: 6px;
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: repeat(4, auto) !important;
+    }
+
+    .card {
+
+        width: 67px;
+        height: 67px;
+    }
+}
+
+@media (max-width: 250px) {
+    .board {
+
+        padding: 10px;
+        display: grid;
+        grid-gap: 8px;
+        grid-template-columns: repeat(2, auto) !important;
+    }
+
+    .card {
+
+        width: 80px;
+        height: 80px;
+    }
+}
+
+.author {
+
+    margin-top: 30px;
+    color: #36363c;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+#loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    text-align: center;
+}
